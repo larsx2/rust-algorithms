@@ -3,7 +3,7 @@
 This is a repository of some basic algorithms implemented in the Rust programming language.
 
 Searching Algorithms:
-- [ ] Linear Search
+- [x] Linear Search
 - [ ] Binary Search
 - [ ] Depth First Search (DFS)
 - [ ] Breadth First Search (BFS)
