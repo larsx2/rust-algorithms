@@ -1,17 +1,23 @@
-fn linear_search(items: &[i32], target: &i32) -> i32 {
+enum SearchResult {
+    Found(i32),
+    NotFound
+}
 
+fn linear_search(items: &[i32], target: i32) -> SearchResult {
     for (idx, item) in items.iter().enumerate() {
-        if item == target {
-            return idx as i32;
+        if *item == target {
+            return SearchResult::Found(idx as i32);
         }
     }
-
-    -1
+    SearchResult::NotFound
 }
 
 fn main() {
-    let items: [i32; 6] = [1, 3, 5, 7, 12, 454];
-    let target: i32 = 12;
-
-    println!("Result: {}", linear_search(&items, &target));
+    let items = [1, 3, 5, 7, 12, 454];
+    if let SearchResult::Found(n) = linear_search(&items, 12) {
+        println!("Found at {} index :)!", n);
+    }
+    else {
+        println!("Not found :(");
+    }
 }
