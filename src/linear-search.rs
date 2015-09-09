@@ -3,13 +3,15 @@ enum SearchResult {
     NotFound
 }
 
+use SearchResult::*;
+
 fn linear_search(items: &[i32], target: i32) -> SearchResult {
     for (idx, item) in items.iter().enumerate() {
         if *item == target {
-            return SearchResult::Found(idx as i32);
+            return Found(idx as i32);
         }
     }
-    SearchResult::NotFound
+    NotFound
 }
 
 fn main() {
